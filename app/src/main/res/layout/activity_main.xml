@@ -8,7 +8,15 @@
     tools:context="com.hencoder.hencoderpracticelayout2.MainActivity">
 
     <com.hencoder.hencoderpracticelayout2.sample.PM25View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/pm25"
+        android:layout_margin="20dp"
+        android:padding="0dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello"
+        android:layout_below="@+id/pm25"/>
 </RelativeLayout>
