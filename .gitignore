@@ -6,3 +6,4 @@ build/
 .idea/runConfigurations.xml
 .idea/gradle.xml
 app/app.iml
+*.iml

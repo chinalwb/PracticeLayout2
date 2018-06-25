@@ -8,7 +8,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.SweepGradient;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -22,11 +21,13 @@ import static android.view.View.MeasureSpec.EXACTLY;
 
 public class PM25View extends View {
 
+    protected static final String TAG = "HenCoder";
+
     private static int mcount = 0;
 
     private static int STROKE_WIDTH = 30;
-    private static int SWEEP_COLOR_START = Color.BLUE;
-    private static int SWEEP_COLOR_END = Color.CYAN;
+    private static int SWEEP_COLOR_START = Color.CYAN;
+    private static int SWEEP_COLOR_END = Color.BLUE;
 
     private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint mPaint2 = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -36,7 +37,7 @@ public class PM25View extends View {
 
     private int mWidth, mHeight, mPadding, mCX, mCY, mEndTextSize, mPolutionTextSize, mAirStatusTextSize;
 
-    private float pollution, pollutionValue = 102;
+    private float pollution, pollutionValue = 500;
     private String airDesc = "轻度污染";
 
     private int mStartAngle = 135;
@@ -46,11 +47,11 @@ public class PM25View extends View {
         this(context, null);
     }
 
-    public PM25View(Context context, @Nullable AttributeSet attrs) {
+    public PM25View(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public PM25View(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public PM25View(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -59,53 +60,54 @@ public class PM25View extends View {
         invalidate();
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        ++mcount;
-        Log.w("xx", "mcount == " + mcount);
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        ++mcount;
+//        Log.w("xx", "mcount == " + mcount);
+//
+//
+//        int w = getMeasuredWidth();
+//        int h = getMeasuredHeight();
+//
+//        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+//        switch (widthMode) {
+//            case MeasureSpec.UNSPECIFIED:
+//                Log.w("xx", "width mode == unspecified");
+//                break;
+//            case MeasureSpec.AT_MOST:
+//                Log.w("xx", "width mode == at most");
+//                break;
+//            case EXACTLY:
+//                Log.w("xx", "width mode == exactly");
+//                break;
+//        }
+//
+//        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+//        switch (heightMode) {
+//            case MeasureSpec.UNSPECIFIED:
+//                Log.w("xx", "height mode == unspecified");
+//                break;
+//            case MeasureSpec.AT_MOST:
+//                Log.w("xx", "height mode == at most");
+//                break;
+//            case EXACTLY:
+//                Log.w("xx", "height mode == exactly");
+//                break;
+//        }
+//
+//
+//        setSizes(w, h);
+//    }
 
-
-        int w = getMeasuredWidth();
-        int h = getMeasuredHeight();
-
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        switch (widthMode) {
-            case MeasureSpec.UNSPECIFIED:
-                Log.w("xx", "width mode == unspecified");
-                break;
-            case MeasureSpec.AT_MOST:
-                Log.w("xx", "width mode == at most");
-                break;
-            case EXACTLY:
-                Log.w("xx", "width mode == exactly");
-                break;
-        }
-
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-        switch (heightMode) {
-            case MeasureSpec.UNSPECIFIED:
-                Log.w("xx", "height mode == unspecified");
-                break;
-            case MeasureSpec.AT_MOST:
-                Log.w("xx", "height mode == at most");
-                break;
-            case EXACTLY:
-                Log.w("xx", "height mode == exactly");
-                break;
-        }
-
-        Log.e("xx", "w == " + w);
-        if (h > w) {
-            h = w;
-        }
-        calculateSizeExactly(w, h);
-    }
 
     /**
      *
      */
-    private void calculateSizeExactly(int w, int h) {
+    protected void setSizes(int w, int h) {
+        if (h > w) {
+            h = w;
+        }
         setMeasuredDimension(w, h);
         initNumbers(w, h);
         initPaints();
@@ -130,7 +132,7 @@ public class PM25View extends View {
         mPadding = getPaddingTop();
 
         // Sets the sweep gradient
-        mPaint2.setShader(new SweepGradient(mCX, mCY, SWEEP_COLOR_START, SWEEP_COLOR_END));
+        mPaint2.setShader(new SweepGradient(mCX, mCY, new int[]{SWEEP_COLOR_END, SWEEP_COLOR_START, SWEEP_COLOR_END}, null));
     }
 
     private void initPaints() {

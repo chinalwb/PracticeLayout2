@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PracticeLayout2</string>
+
+    <string name="title_exactly_200dp">Exactly - 200dp</string>
 </resources>
