@@ -3,4 +3,5 @@
 
     <string name="title_exactly_200dp">Exactly - 200dp</string>
     <string name="title_exactly_match_parent">Exactly - Match Parent</string>
+    <string name="title_at_most">At Most</string>
 </resources>
