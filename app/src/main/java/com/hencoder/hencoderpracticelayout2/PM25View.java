@@ -37,7 +37,7 @@ public class PM25View extends View {
 
     private int mWidth, mHeight, mPadding, mCX, mCY, mEndTextSize, mPolutionTextSize, mAirStatusTextSize;
 
-    private float pollution, pollutionValue = 500;
+    private float pollution, pollutionValue = 121;
     private String airDesc = "轻度污染";
 
     private int mStartAngle = 135;
@@ -108,6 +108,9 @@ public class PM25View extends View {
         if (h > w) {
             h = w;
         }
+        if (w > h) {
+            w = h;
+        }
         setMeasuredDimension(w, h);
         initNumbers(w, h);
         initPaints();
@@ -130,9 +133,10 @@ public class PM25View extends View {
         mAirStatusTextSize = mPolutionTextSize / 2;
 
         mPadding = getPaddingTop();
-
         // Sets the sweep gradient
-        mPaint2.setShader(new SweepGradient(mCX, mCY, new int[]{SWEEP_COLOR_END, SWEEP_COLOR_START, SWEEP_COLOR_END}, null));
+        int[] colors = {Color.BLACK, Color.RED, Color.CYAN, Color.BLUE, Color.BLACK};
+        float[] positions = {0f, .1f, 0.5f, 0.75f, 1f};
+        mPaint2.setShader(new SweepGradient(mCX, mCY, colors, positions));
     }
 
     private void initPaints() {
@@ -222,7 +226,6 @@ public class PM25View extends View {
         int p0y = (int) (mCY + Math.sin(angle) * r);
 
         Paint.FontMetrics fontMetrics = mPaint3.getFontMetrics();
-        Log.e("xx", "fontMetrics top == " + fontMetrics.top);
         p0x = p0x - w_0 / 2;
         p0y = (int) (p0y + h_0 - fontMetrics.top);
         canvas.drawText(text, p0x, p0y, mPaint3);

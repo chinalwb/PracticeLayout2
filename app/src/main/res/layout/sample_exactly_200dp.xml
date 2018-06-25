@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:background="@drawable/bg">
 
     <com.hencoder.hencoderpracticelayout2.sample.PM25View_Sample_Exactly_200dp

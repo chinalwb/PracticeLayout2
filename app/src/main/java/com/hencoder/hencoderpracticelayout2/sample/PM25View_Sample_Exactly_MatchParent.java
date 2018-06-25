@@ -12,18 +12,16 @@ import static android.view.View.MeasureSpec.EXACTLY;
  * Created by wliu on 25/06/2018.
  */
 
-public class PM25View_Sample_Exactly_200dp extends PM25View {
-    private int count = 0;
-
-    public PM25View_Sample_Exactly_200dp(Context context) {
+public class PM25View_Sample_Exactly_MatchParent extends PM25View {
+    public PM25View_Sample_Exactly_MatchParent(Context context) {
         super(context);
     }
 
-    public PM25View_Sample_Exactly_200dp(Context context, AttributeSet attrs) {
+    public PM25View_Sample_Exactly_MatchParent(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public PM25View_Sample_Exactly_200dp(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PM25View_Sample_Exactly_MatchParent(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -56,18 +54,6 @@ public class PM25View_Sample_Exactly_200dp extends PM25View {
                 h = getMeasuredHeight();
                 break;
         }
-
-        //
-        // onMeasure 会执行多次，我的测试中他执行了12次
-        // 打印log
-        Log.w(TAG, ++count + " >>> " + "w =  " + w + ", h == " + h);
-
-        //
-        // 如果没有 resolveSize，这12次onMeasure过程当中有时候得到的宽度或高度为0
-        // 加上 resolveSize 则不会出现这个情况，从第一次到最后一次都能得到固定值
-        w = resolveSize(w, widthMeasureSpec);
-        h = resolveSize(h, widthMeasureSpec);
-
 
         // 这句代码调用了  setMeasuredDimension(width, height) - 重点
         // 并设定了一些PM25View的参数
