@@ -72,7 +72,7 @@ public class PM25View_Practice_AtMost extends PM25View {
 //        w = resolveSize(w, widthMeasureSpec);
 //        h = resolveSize(h, heightMeasureSpec);
 //
-//        Log.w(TAG, ++count + " >>> " + "w =  " + w + ", h == " + h);
+//        Log.w(TAG, count + " >>> " + "w =  " + w + ", h == " + h);
 
         // 这句代码调用了  setMeasuredDimension(width, height) - 重点
         // 并设定了一些PM25View的参数

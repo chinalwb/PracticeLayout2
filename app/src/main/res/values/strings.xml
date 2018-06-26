@@ -4,4 +4,5 @@
     <string name="title_exactly_200dp">EXACTLY - 200DP</string>
     <string name="title_exactly_match_parent">EXACTLY - MATCH PARENT</string>
     <string name="title_at_most">AT MOST - WRAP_CONTENT</string>
+    <string name="title_unspecified">UNSPECIFIED - WEIGHT</string>
 </resources>

@@ -12,19 +12,19 @@ import static android.view.View.MeasureSpec.EXACTLY;
  * Created by wliu on 25/06/2018.
  */
 
-public class PM25View_Sample_AtMost extends PM25View {
-    protected static final String TAG = "HenCoder AtMost";
+public class PM25View_Sample_Unspecified extends PM25View {
+    protected static final String TAG = "HenCoder Unspecified";
     private int count = 0;
 
-    public PM25View_Sample_AtMost(Context context) {
+    public PM25View_Sample_Unspecified(Context context) {
         super(context);
     }
 
-    public PM25View_Sample_AtMost(Context context, AttributeSet attrs) {
+    public PM25View_Sample_Unspecified(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public PM25View_Sample_AtMost(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PM25View_Sample_Unspecified(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -37,10 +37,10 @@ public class PM25View_Sample_AtMost extends PM25View {
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         switch (widthMode) {
             case MeasureSpec.UNSPECIFIED:
+                Log.w(TAG, "width mode == unspecified");
+                w = 1080;
                 break;
             case MeasureSpec.AT_MOST:
-                Log.w(TAG, "width mode == at most");
-                w = getMeasuredWidth();
                 break;
             case EXACTLY:
                 break;
@@ -59,11 +59,6 @@ public class PM25View_Sample_AtMost extends PM25View {
         }
 
         ++count;
-
-        Log.w(TAG, count + " >>> " + "w =  " + w + ", h == " + h);
-
-        w = w > 300 ? w - 200 : w;
-        h = h > 300 ? h - 200 : h;
 
         w = resolveSize(w, widthMeasureSpec);
         h = resolveSize(h, heightMeasureSpec);
