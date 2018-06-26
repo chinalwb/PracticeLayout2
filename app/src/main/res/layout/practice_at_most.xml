@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.hencoder.hencoderpracticelayout2.practice.Practice_AtMostLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,21 +12,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:text="Left Button"
+        android:text="Hide Center Button"
         />
-    <com.hencoder.hencoderpracticelayout2.sample.PM25View_Sample_AtMost
-        android:id="@+id/pm25"
-        android:padding="0dp"
-        android:layout_toRightOf="@+id/left"
-        android:layout_toLeftOf="@+id/right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/right"
+        android:id="@+id/center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="Right Button Long long name"
+        android:text="Center Button"
         />
-</RelativeLayout>
+    <com.hencoder.hencoderpracticelayout2.practice.PM25View_Practice_AtMost
+        android:id="@+id/pm25"
+        android:padding="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</com.hencoder.hencoderpracticelayout2.practice.Practice_AtMostLinearLayout>

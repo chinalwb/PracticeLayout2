@@ -61,9 +61,6 @@ public class PM25View_Sample_AtMost extends PM25View {
         w = resolveSize(w, widthMeasureSpec);
         h = resolveSize(h, heightMeasureSpec);
 
-        //
-        // onMeasure 会执行多次，我的测试中他执行了12次 m
-        // 打印log
         Log.w(TAG, ++count + " >>> " + "w =  " + w + ", h == " + h);
 
         // 这句代码调用了  setMeasuredDimension(width, height) - 重点
