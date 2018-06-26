@@ -58,10 +58,21 @@ public class PM25View_Practice_AtMost extends PM25View {
                 break;
         }
 
+        //
+        // ----
+        // 如果计算出来的可用宽度或高度大于300，则直接减去200，然后再 resolveSize
+        // 这样就符合扔物线视频中说的，最大是 500, 无论设定成 400 还是 500， 都是合法的
+//        ++count;
+//
+//        Log.w(TAG, count + " >>> " + "w =  " + w + ", h == " + h);
+//
+//        w = w > 300 ? w - 200 : w;
+//        h = h > 300 ? h - 200 : h;
+//
 //        w = resolveSize(w, widthMeasureSpec);
 //        h = resolveSize(h, heightMeasureSpec);
-
-        Log.w(TAG, ++count + " >>> " + "w =  " + w + ", h == " + h);
+//
+//        Log.w(TAG, ++count + " >>> " + "w =  " + w + ", h == " + h);
 
         // 这句代码调用了  setMeasuredDimension(width, height) - 重点
         // 并设定了一些PM25View的参数

@@ -65,6 +65,7 @@ public class PM25View_Practice_Exactly_200dp extends PM25View {
         Log.w(TAG, ++count + " >>> " + "w =  " + w + ", h == " + h);
 
         //
+        // ----
         // 如果没有 resolveSize，这12次onMeasure过程当中有时候得到的宽度或高度为0
         // 加上 resolveSize 则不会出现这个情况，从第一次到最后一次都能得到固定值
 //        w = resolveSize(w, widthMeasureSpec);

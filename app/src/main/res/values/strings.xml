@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PracticeLayout2</string>
 
-    <string name="title_exactly_200dp">Exactly - 200dp</string>
-    <string name="title_exactly_match_parent">Exactly - Match Parent</string>
-    <string name="title_at_most">At Most</string>
+    <string name="title_exactly_200dp">EXACTLY - 200DP</string>
+    <string name="title_exactly_match_parent">EXACTLY - MATCH PARENT</string>
+    <string name="title_at_most">AT MOST - WRAP_CONTENT</string>
 </resources>

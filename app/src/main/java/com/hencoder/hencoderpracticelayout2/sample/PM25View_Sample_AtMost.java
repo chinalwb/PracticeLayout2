@@ -58,13 +58,20 @@ public class PM25View_Sample_AtMost extends PM25View {
                 break;
         }
 
+        ++count;
+
+        Log.w(TAG, count + " >>> " + "w =  " + w + ", h == " + h);
+
+        w = w > 300 ? w - 200 : w;
+        h = h > 300 ? h - 200 : h;
+
         w = resolveSize(w, widthMeasureSpec);
         h = resolveSize(h, heightMeasureSpec);
 
         Log.w(TAG, ++count + " >>> " + "w =  " + w + ", h == " + h);
 
         // 这句代码调用了  setMeasuredDimension(width, height) - 重点
-        // 并设定了一些PM25View的参数
+        // 并设定了一些PM25View的参数, 比如强制设定 宽高相等
         setSizes(w, h);
     }
 }
