@@ -12,18 +12,20 @@ import static android.view.View.MeasureSpec.EXACTLY;
  * Created by wliu on 25/06/2018.
  */
 
-public class PM25View_Sample_Exactly_200dp extends PM25View {
+public class PM25View_Sample_Resolve_Size extends PM25View {
+    private static final String TAG = "HenCoder ResolveSize";
+
     private int count = 0;
 
-    public PM25View_Sample_Exactly_200dp(Context context) {
+    public PM25View_Sample_Resolve_Size(Context context) {
         super(context);
     }
 
-    public PM25View_Sample_Exactly_200dp(Context context, AttributeSet attrs) {
+    public PM25View_Sample_Resolve_Size(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public PM25View_Sample_Exactly_200dp(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PM25View_Sample_Resolve_Size(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -41,7 +43,12 @@ public class PM25View_Sample_Exactly_200dp extends PM25View {
                 break;
             case EXACTLY:
                 Log.w(TAG, "width mode == exactly");
-                w = getMeasuredWidth();
+                // w = getMeasuredWidth();
+                //
+                // 不管设定的是 100dp 还是多少dp 我都给他设定成 1080 像素
+                // 这样就会出现扔物线视频当中提到的： 会发生什么？ bug！
+                // 但resolveSize可以帮助符合这个用户设定的限制
+                w = 1080;
                 break;
         }
 
@@ -58,25 +65,10 @@ public class PM25View_Sample_Exactly_200dp extends PM25View {
         }
 
         //
-        // onMeasure 会执行多次，我的测试中他执行了12次
-        // 打印log
-        Log.w(TAG, ++count + " >>> " + "w =  " + w + ", h == " + h);
-
-        //
-        // 如果没有 resolveSize，这12次onMeasure过程当中有时候得到的宽度或高度为0
-        // 加上 resolveSize 则不会出现这个情况，从第一次到最后一次都能得到固定值
-        // 这是因为 measureMode == EXACTLY 的时候，在resolveSize方法里面直接返回
-        // specSize ---- 扔物线视频中讲到
+        // 打开resolveSize 则符合用户设定
         w = resolveSize(w, widthMeasureSpec);
         h = resolveSize(h, widthMeasureSpec);
 
-        // 强制设定宽高相等
-        if (h > w) {
-            h = w;
-        }
-        if (w > h) {
-            w = h;
-        }
         setMeasuredDimension(w, h);
         // 这句代码调用了
         // 并设定了一些PM25View的参数

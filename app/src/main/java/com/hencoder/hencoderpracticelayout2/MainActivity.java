@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         pageModels.add(new PageModel(R.layout.sample_exactly_match_parent, R.string.title_exactly_match_parent, R.layout.practice_exactly_match_parent));
         pageModels.add(new PageModel(R.layout.sample_at_most, R.string.title_at_most, R.layout.practice_at_most));
         pageModels.add(new PageModel(R.layout.sample_unspecified, R.string.title_unspecified, R.layout.practice_unspecified));
+        pageModels.add(new PageModel(R.layout.sample_resolve_size, R.string.title_resolve_size, R.layout.practice_resolve_size));
     }
 
     @Override
