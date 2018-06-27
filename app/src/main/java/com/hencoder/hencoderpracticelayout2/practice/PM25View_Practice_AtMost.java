@@ -74,7 +74,18 @@ public class PM25View_Practice_AtMost extends PM25View {
 //
 //        Log.w(TAG, count + " >>> " + "w =  " + w + ", h == " + h);
 
-        // 这句代码调用了  setMeasuredDimension(width, height) - 重点
+
+        // 强制宽高相等
+        if (h > w) {
+            h = w;
+        }
+        if (w > h) {
+            w = h;
+        }
+        // 保存宽高计算结果
+        setMeasuredDimension(w, h);
+
+        // 这句代码调用了
         // 并设定了一些PM25View的参数
         setSizes(w, h);
     }

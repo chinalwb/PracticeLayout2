@@ -71,8 +71,18 @@ public class PM25View_Practice_Exactly_200dp extends PM25View {
 //        w = resolveSize(w, widthMeasureSpec);
 //        h = resolveSize(h, widthMeasureSpec);
 
+        // 强制宽高相等
+        if (h > w) {
+            h = w;
+        }
+        if (w > h) {
+            w = h;
+        }
+        // 保存宽高计算结果
+        setMeasuredDimension(w, h);
+
         //
-        // 这句代码调用了  setMeasuredDimension(width, height) - 重点
+        // 这句代码调用了
         // 并设定了一些PM25View的参数
         setSizes(w, h);
     }

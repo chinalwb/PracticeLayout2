@@ -55,7 +55,14 @@ public class PM25View_Sample_Exactly_MatchParent extends PM25View {
                 break;
         }
 
-        // 这句代码调用了  setMeasuredDimension(width, height) - 重点
+        if (h > w) {
+            h = w;
+        }
+        if (w > h) {
+            w = h;
+        }
+        setMeasuredDimension(w, h);
+        // 这句代码调用了
         // 并设定了一些PM25View的参数
         setSizes(w, h);
     }

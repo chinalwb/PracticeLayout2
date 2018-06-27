@@ -105,13 +105,6 @@ public class PM25View extends View {
      *
      */
     protected void setSizes(int w, int h) {
-        if (h > w) {
-            h = w;
-        }
-        if (w > h) {
-            w = h;
-        }
-        setMeasuredDimension(w, h);
         initNumbers(w, h);
         initPaints();
     }

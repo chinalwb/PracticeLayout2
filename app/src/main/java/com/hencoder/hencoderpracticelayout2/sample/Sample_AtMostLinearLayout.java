@@ -33,8 +33,8 @@ public class Sample_AtMostLinearLayout extends LinearLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
 
-        leftButton = findViewById(R.id.left);
-        centerButton = findViewById(R.id.center);
+        leftButton = findViewById(R.id.sample_left);
+        centerButton = findViewById(R.id.sample_center);
 
         leftButton.setOnClickListener(new OnClickListener() {
             @Override

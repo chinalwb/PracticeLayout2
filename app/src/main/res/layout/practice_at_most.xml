@@ -8,7 +8,7 @@
     android:background="@drawable/bg">
 
     <Button
-        android:id="@+id/left"
+        android:id="@+id/practice_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -16,14 +16,13 @@
         />
 
     <Button
-        android:id="@+id/center"
+        android:id="@+id/practice_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="Center Button"
         />
     <com.hencoder.hencoderpracticelayout2.practice.PM25View_Practice_AtMost
-        android:id="@+id/pm25"
         android:padding="0dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
