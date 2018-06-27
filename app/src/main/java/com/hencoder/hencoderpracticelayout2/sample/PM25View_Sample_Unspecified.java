@@ -40,7 +40,7 @@ public class PM25View_Sample_Unspecified extends PM25View {
                 Log.w(TAG, "width mode == unspecified");
                 //
                 // 横向的ScrollView 自定义控件
-                w = 200;
+                w = 3000;
                 break;
             case MeasureSpec.AT_MOST:
                 //
@@ -71,12 +71,12 @@ public class PM25View_Sample_Unspecified extends PM25View {
 
         Log.w(TAG, count + " >>> " + "w =  " + w + ", h == " + h);
 
-        if (h > w) {
-            h = w;
-        }
-        if (w > h) {
-            w = h;
-        }
+//        if (h > w) {
+//            h = w;
+//        }
+//        if (w > h) {
+//            w = h;
+//        }
         setMeasuredDimension(w, h);
 
         // 这句代码调用了

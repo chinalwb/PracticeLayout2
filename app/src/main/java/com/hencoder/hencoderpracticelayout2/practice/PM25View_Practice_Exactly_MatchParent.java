@@ -8,7 +8,12 @@ import com.hencoder.hencoderpracticelayout2.PM25View;
 import static android.view.View.MeasureSpec.EXACTLY;
 
 /**
- * Created by wliu on 25/06/2018.
+ * MeasureSpec.EXACTLY 场景
+ *
+ * layout_width = "MATCH_PARENT"
+ * 设定为 match_parent 的宽度 或 高度，那么 getMeasuredWidth() 就返回了应有的固定宽度
+ *
+ *  可以关注下面注释中带有 ---- 的部分
  */
 
 public class PM25View_Practice_Exactly_MatchParent extends PM25View {
@@ -37,6 +42,7 @@ public class PM25View_Practice_Exactly_MatchParent extends PM25View {
             case MeasureSpec.AT_MOST:
                 break;
             case EXACTLY:
+                // ----
                 // 指定 MATCH_PARENT，MeasureSpec.getMode 会返回 EXACTLY
 //                Log.w(TAG, "width mode == exactly");
 //                w = getMeasuredWidth();
@@ -50,6 +56,7 @@ public class PM25View_Practice_Exactly_MatchParent extends PM25View {
             case MeasureSpec.AT_MOST:
                 break;
             case EXACTLY:
+                // ----
                 // 指定 MATCH_PARENT，MeasureSpec.getMode 会返回 EXACTLY
 //                Log.w(TAG, "height mode == exactly");
 //                h = getMeasuredHeight();

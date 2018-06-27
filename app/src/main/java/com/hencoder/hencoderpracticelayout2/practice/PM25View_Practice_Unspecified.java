@@ -9,7 +9,16 @@ import com.hencoder.hencoderpracticelayout2.PM25View;
 import static android.view.View.MeasureSpec.EXACTLY;
 
 /**
- * Created by wliu on 25/06/2018.
+ * MeasureSpec.UNSPECIFIED 场景
+ *
+ * 典型应用场景为
+ * ScrollView 的高度是根据其子View的高度来计算出来的
+ * 那么自定义的View的高度 （或者 HorizontalScrollView 来说就是宽度）就是不固定的
+ * 就需要自己计算获得，没有限制
+ *
+ * 可以任意设定，用resolveSize方法不会影响结果
+ *
+ * 可以关注下面注释中带有 ---- 的部分
  */
 
 public class PM25View_Practice_Unspecified extends PM25View {
@@ -38,13 +47,15 @@ public class PM25View_Practice_Unspecified extends PM25View {
         switch (widthMode) {
             case MeasureSpec.UNSPECIFIED:
                 Log.w(TAG, "width mode == unspecified");
-                //
+                // ----
                 // 横向的ScrollView 自定义控件
+                // 不限定宽度，可以任意指定值
                 // w = 200;
+                // w = 3000;
                 break;
             case MeasureSpec.AT_MOST:
-                //
-                // onMeasure 执行多次，但这个数值在并不起作用
+                // ----
+                // onMeasure 执行多次，此处也会执行到。但这个数值在并不起作用
                 Log.w(TAG, "width mode == at most");
                 w = 1000;
                 break;
@@ -66,6 +77,8 @@ public class PM25View_Practice_Unspecified extends PM25View {
 
         ++count;
 
+        // ----
+        // resolveSize 不会改变上面的计算结果
         w = resolveSize(w, widthMeasureSpec);
         h = resolveSize(h, heightMeasureSpec);
 

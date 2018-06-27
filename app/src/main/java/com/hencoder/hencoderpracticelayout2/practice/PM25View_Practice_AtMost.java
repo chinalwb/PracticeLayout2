@@ -9,7 +9,11 @@ import com.hencoder.hencoderpracticelayout2.PM25View;
 import static android.view.View.MeasureSpec.EXACTLY;
 
 /**
- * Created by wliu on 25/06/2018.
+ * MeasureSpec.AT_MOST 场景
+ * 典型设置就是 LinearLayout 的子控件设定为 layout_width="wrap_content"
+ * 最多不要超过某个值。小于他可以，大于他不行 - 大于他会发生什么？ bug!
+ *
+ * 可以关注下面注释中带有 ---- 的部分
  */
 
 public class PM25View_Practice_AtMost extends PM25View {
@@ -39,6 +43,7 @@ public class PM25View_Practice_AtMost extends PM25View {
             case MeasureSpec.UNSPECIFIED:
                 break;
             case MeasureSpec.AT_MOST:
+                // ----
 //                Log.w(TAG, "width mode == at most");
 //                w = getMeasuredWidth();
                 break;
@@ -51,6 +56,7 @@ public class PM25View_Practice_AtMost extends PM25View {
             case MeasureSpec.UNSPECIFIED:
                 break;
             case MeasureSpec.AT_MOST:
+                // ----
 //                Log.w(TAG, "height mode == at most");
 //                h = getMeasuredHeight();
                 break;
@@ -62,6 +68,7 @@ public class PM25View_Practice_AtMost extends PM25View {
         // ----
         // 如果计算出来的可用宽度或高度大于300，则直接减去200，然后再 resolveSize
         // 这样就符合扔物线视频中说的，最大是 500, 无论设定成 400 还是 500， 都是合法的
+        // 所以 在计算结果的基础上可以减少 但不能增加
 //        ++count;
 //
 //        Log.w(TAG, count + " >>> " + "w =  " + w + ", h == " + h);

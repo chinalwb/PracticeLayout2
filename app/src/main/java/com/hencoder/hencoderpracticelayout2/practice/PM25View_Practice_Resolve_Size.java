@@ -9,7 +9,9 @@ import com.hencoder.hencoderpracticelayout2.PM25View;
 import static android.view.View.MeasureSpec.EXACTLY;
 
 /**
- * Created by wliu on 25/06/2018.
+ * 用 resolveSize 使计算结果符合用户限制。
+ *
+ * 可以关注下面注释中带有 ---- 的部分
  */
 
 public class PM25View_Practice_Resolve_Size extends PM25View {
@@ -44,7 +46,7 @@ public class PM25View_Practice_Resolve_Size extends PM25View {
             case EXACTLY:
                 Log.w(TAG, "width mode == exactly");
                 // w = getMeasuredWidth();
-                //
+                // ----
                 // 不管设定的是 100dp 还是多少dp 我都给他设定成 1080 像素
                 // 这样就会出现扔物线视频当中提到的： 会发生什么？ bug！
                 // 但resolveSize可以帮助符合这个用户设定的限制
@@ -64,7 +66,7 @@ public class PM25View_Practice_Resolve_Size extends PM25View {
                 break;
         }
 
-        //
+        // ----
         // 打开resolveSize 则符合用户设定
         // w = resolveSize(w, widthMeasureSpec);
         // h = resolveSize(h, widthMeasureSpec);
